@@ -36,21 +36,10 @@ void setVar() {
         //split string
         command = strtok(buffer_in, " ");
         controller(command);
-
-        
-        while (argument != NULL)
-        {
-            if(i==0){
-
-                i++;
-            }
-            //argument
-            printf("%s\n", argument);
-            argument = strtok(NULL, " ");
-        }
-
     }
 
+    //.DEBUG
+    printHighway();
 }
 
 void controller(char *command){
@@ -79,7 +68,31 @@ void controller(char *command){
 }
 
 void addStation(){
-    printf("aggiunta");
+    int distance, num_auto;
+    veicolo v;
+    argument = strtok(NULL, " ");
+    distance = atoi(argument);
+
+    argument = strtok(NULL, " ");
+    num_auto = atoi(argument);
+
+    stazione s;
+    s.distanza_da_inizio_autostada = distance;
+    add_station(s, num_auto);
+
+    while (argument != NULL)//adesso qui sono tutte auto
+    {
+        argument = strtok(NULL, " ");
+        //.DEBUG
+        //printf("\nargument: %s", argument);
+        if (argument == NULL || strcmp(argument, newline) == 0)
+        {
+            break;
+        }
+        v.autonomia = atoi(argument);
+        add_auto(&highway.stazioni[highway.actual_size - 1].parco, v);
+    }
+
 }
 
 void plan(){

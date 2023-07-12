@@ -1,0 +1,172 @@
+Highway: {
+    "Size": 4,
+    "Capacity": 25,
+    Stazioni: [
+        {
+            "Stazione": 1,
+            "Distanza": 24,
+            "Index": 0,
+            {
+                "Size": 0,
+                "Capacity": 56,
+    Parco Veicoli: {
+                    []
+                }
+            },
+            {
+                "Stazione": 2,
+                "Distanza": 52,
+                "Index": 1,
+                {
+                    "Size": 0,
+                    "Capacity": 59,
+    Parco Veicoli: {
+                        []
+                    }
+                },
+                {
+                    "Stazione": 3,
+                    "Distanza": 91,
+                    "Index": 0,
+                    {
+                        "Size": 15,
+                        "Capacity": 59,
+    Parco Veicoli: {
+                            [
+                                {
+                                    "numero veicolo": 1,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 2,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 3,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 4,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 5,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 6,
+                                    "Autonomia": 4,
+                                },
+                                {
+                                    "numero veicolo": 7,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 8,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 9,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 10,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 11,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 12,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 13,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 14,
+                                    "Autonomia": 5,
+                                },
+                                {
+                                    "numero veicolo": 15,
+                                    "Autonomia": 6,
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "Stazione": 4,
+                        "Distanza": 92,
+                        "Index": 2,
+                        {
+                            "Size": 15,
+                            "Capacity": 56,
+    Parco Veicoli: {
+                                [
+                                    {
+                                        "numero veicolo": 1,
+                                        "Autonomia": 4,
+                                    },
+                                    {
+                                        "numero veicolo": 2,
+                                        "Autonomia": 4,
+                                    },
+                                    {
+                                        "numero veicolo": 3,
+                                        "Autonomia": 5,
+                                    },
+                                    {
+                                        "numero veicolo": 4,
+                                        "Autonomia": 5,
+                                    },
+                                    {
+                                        "numero veicolo": 5,
+                                        "Autonomia": 5,
+                                    },
+                                    {
+                                        "numero veicolo": 6,
+                                        "Autonomia": 5,
+                                    },
+                                    {
+                                        "numero veicolo": 7,
+                                        "Autonomia": 13,
+                                    },
+                                    {
+                                        "numero veicolo": 8,
+                                        "Autonomia": 13,
+                                    },
+                                    {
+                                        "numero veicolo": 9,
+                                        "Autonomia": 14,
+                                    },
+                                    {
+                                        "numero veicolo": 10,
+                                        "Autonomia": 15,
+                                    },
+                                    {
+                                        "numero veicolo": 11,
+                                        "Autonomia": 15,
+                                    },
+                                    {
+                                        "numero veicolo": 12,
+                                        "Autonomia": 16,
+                                    },
+                                    {
+                                        "numero veicolo": 13,
+                                        "Autonomia": 17,
+                                    },
+                                    {
+                                        "numero veicolo": 14,
+                                        "Autonomia": 17,
+                                    },
+                                    {
+                                        "numero veicolo": 15,
+                                        "Autonomia": 18,
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }

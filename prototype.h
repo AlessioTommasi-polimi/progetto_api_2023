@@ -19,8 +19,11 @@ void printparcoVeicoli(parco_veicoli *parco);
 
 void printVeicolo(veicolo *v);
 
-void ErrorAddAuto();
+void ErrorAdd();
 
+void SuccessAdd();
+
+/*end stampe*/
 void init_autostrada();
 
 void init_parco(struct parco_veicoli *p, int initial_auto);

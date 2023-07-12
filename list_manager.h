@@ -1,5 +1,5 @@
 #define INITIAL_STATION 25
-#define INITIAL_AUTO 10 //COMUNQUE MAX SONO 512
+#define INITIAL_AUTO 50 //COMUNQUE MAX SONO 512
 
 void free_autostrada()
 {
@@ -44,7 +44,7 @@ void add_auto( parco_veicoli *p, veicolo v)
 {
     if (p->actual_size == 512)
     {
-        ErrorAddAuto();
+        ErrorAdd();
         return;
     }
     if (p->actual_size == p->actual_capacity)
@@ -53,8 +53,24 @@ void add_auto( parco_veicoli *p, veicolo v)
         p->actual_capacity > 512 ? p->actual_capacity = 512 : p->actual_capacity;
         p->veicoli = (struct veicolo *)realloc(p->veicoli, p->actual_capacity * sizeof(struct veicolo));
     }
-    p->veicoli[p->actual_size] = v;
+
+    int index = 0;
+
+    while (index < p->actual_size && p->veicoli[index].autonomia < v.autonomia)
+    {
+        index++;
+    }
+
+    // shift
+    for (int i = p->actual_size; i > index; i--)
+    {
+        p->veicoli[i] = p->veicoli[i - 1];
+    }
+
+    p->veicoli[index] = v;
     p->actual_size++;
+
+    SuccessAdd();
 }
 
 void add_station(stazione s, int initial_auto)
@@ -64,9 +80,25 @@ void add_station(stazione s, int initial_auto)
         highway.actual_capacity += INITIAL_STATION;
         highway.stazioni = (struct stazione *)realloc(highway.stazioni, highway.actual_capacity * sizeof(struct stazione));
     }
-    highway.stazioni[highway.actual_size] = s;
+
+    
+    int index = 0;
+
+    while (index < highway.actual_size && highway.stazioni[index].distanza_da_inizio_autostada < s.distanza_da_inizio_autostada)
+    {
+        index++;
+    }
+    
+    // shift
+    for (int i = highway.actual_size; i > index; i--)
+    {
+        highway.stazioni[i] = highway.stazioni[i - 1];
+    }
+
+    s.index = index;
     highway.actual_size++;
+    highway.stazioni[index] = s;
 
     // siccome ho numero di veicoli quando faccio un add station lo faccio li!
-    init_parco(&highway.stazioni[highway.actual_size-1].parco, initial_auto);
+    init_parco(&highway.stazioni[index].parco, initial_auto);
 }
