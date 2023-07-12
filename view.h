@@ -4,12 +4,12 @@ void printparcoVeicoli(parco_veicoli *parco)
     printf("            \"Size\": %d,\n", parco->actual_size);
     printf("            \"Capacity\": %d,\n", parco->actual_capacity);
     printf("             Veicoli:[\n");
+    printf("              curr_max: {\"Autonomia\": %d \"index\": %d},\n", parco->curr_max.autonomia, parco->curr_max.index);
 
-    
     for (int i = 0; i < parco->actual_size; i++)
     {
         printf("                 {\n");
-        printf("                   \"numero veicolo\": %d,\n", i + 1);
+        printf("                   \"numero veicolo\": %d,\n", i);//se tutto giusto corrisponde con index!
         printVeicolo(&parco->veicoli[i]);
         printf("                 }%s\n", (i < parco->actual_size - 1) ? "," : "");
     }
@@ -29,6 +29,26 @@ void ErrorAdd(){
 
 void SuccessAdd(){
     printf("aggiunta\n");
+}
+
+void ErrorRottama()
+{
+    printf("non rottamata\n");
+}
+
+void SuccessRottama()
+{
+    printf("rottamata\n");
+}
+
+void ErrorDemolisci()
+{
+    printf("non demolita\n");
+}
+
+void SuccessDemolisci()
+{
+    printf("demolita\n");
 }
 
 void printHighway(){

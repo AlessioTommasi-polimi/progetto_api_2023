@@ -8,3 +8,9 @@ aggiungi-auto 1 39
 aggiungi-auto 1 39
 aggiungi-auto 1 28
 pianifica-percorso 24 92
+rottama-auto 1 39
+rottama-auto 1 9
+demolisci-stazione 1
+demolisci-stazione 4
+demolisci-stazione 3
+demolisci-stazione 2

@@ -50,7 +50,7 @@ void controller(char *command){
     }
     else if (strcmp(command, "demolisci-stazione") == 0)
     {
-        //addstazione();
+        demolisciStazione();
     }
     else if (strcmp(command, "aggiungi-auto") == 0)
     {
@@ -58,7 +58,7 @@ void controller(char *command){
     }
     else if (strcmp(command, "rottama-auto") == 0)
     {
-        //addviaggio();
+        rottamaAuto();
     }
     else if (strcmp(command, "pianifica-percorso") == 0)
     {
@@ -69,6 +69,7 @@ void controller(char *command){
 
 void addStation(){
     int distance, num_auto;
+    int index;
     veicolo v;
     argument = strtok(NULL, " ");
     distance = atoi(argument);
@@ -78,7 +79,12 @@ void addStation(){
 
     stazione s;
     s.distanza_da_inizio_autostada = distance;
-    add_station(s, num_auto);
+    index = add_station(s, num_auto);
+    if (index == -1)
+    {
+        ErrorAdd();//stazione gia presente
+        return;
+    }
 
     while (argument != NULL)//adesso qui sono tutte auto
     {
@@ -90,9 +96,27 @@ void addStation(){
             break;
         }
         v.autonomia = atoi(argument);
-        add_auto(&highway.stazioni[highway.actual_size - 1].parco, v);
+        if (add_auto(&highway.stazioni[index].parco, v)==-1){
+            //errore aggiunta auto
+            ErrorAdd();
+            return;
+        }
     }
+    SuccessAdd();
 
+}
+
+void demolisciStazione(){
+    int distance;
+    argument = strtok(NULL, " ");
+    distance = atoi(argument);
+    // in questo particolare caso la stampa la faccio all interno di demolisci_stazione perche piu ottimizzata
+    if (demolisci_stazione(distance) == 0)
+    {
+        SuccessDemolisci();
+    }else{
+        ErrorDemolisci();
+    }
 }
 
 void addAuto(){
@@ -111,11 +135,38 @@ void addAuto(){
         ErrorAdd();
         return;
     }
-    add_auto(p, v);
-    SuccessAdd();
+    if(add_auto(p, v) == 0)
+        SuccessAdd();
+    else
+        ErrorAdd();
+
 }
 
-void plan(){
+void rottamaAuto(){
+    int distance, autonomia;
+    veicolo v;
+    parco_veicoli *p;
+    argument = strtok(NULL, " ");
+    distance = atoi(argument);
+
+    argument = strtok(NULL, " ");
+    autonomia = atoi(argument);
+
+    v.autonomia = autonomia;
+    p = get_parco(distance);
+    if(p== NULL){
+        ErrorRottama();
+        return;
+    }
+
+    if(rottama_auto(p, v) == 0)
+        SuccessRottama();
+    else
+        ErrorRottama();
+
+}
+
+void plan(){//TODO
     printf("nessun percorso");
 
 }
