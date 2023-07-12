@@ -1,15 +1,14 @@
 typedef struct veicolo
 {
-    int autonomia;//peso BST
-    int carica_batteria; // espressa in km
-} veicolo; //bst || array[512]
+    int autonomia; // peso BST // espressa in km
+} veicolo; 
 
 typedef struct parco_veicoli
 {
     int actual_size;
     int actual_capacity;
 
-    veicolo *veicoli; // max 512 veicoli
+    veicolo *veicoli; // max 512 veicoli in una singola stazione
 } parco_veicoli;
 
 typedef struct stazione

@@ -15,7 +15,7 @@ int main()
 }
 
 void init(){
-
+    init_autostrada();
 }
 
 void free_var(){
