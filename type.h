@@ -1,0 +1,34 @@
+typedef struct veicolo
+{
+    int autonomia;//peso BST
+    int carica_batteria; // espressa in km
+} veicolo; //bst || array[512]
+
+typedef struct parco_veicoli
+{
+    int actual_size;
+    int actual_capacity;
+
+    veicolo *veicoli; // max 512 veicoli
+} parco_veicoli;
+
+typedef struct stazione
+{
+    int distanza_da_inizio_autostada; // i veicolo possono raggiungere la stazione solo se sono autonomia > distanza_da_inizio_autostada
+    int index;                        // indice della stazione indica indice in cui e posizionara stazione rispetto tutte le altre dell autostrada!
+    // serve per ottimizzare al massimo il fatto che non si possa tornare indieto!
+    parco_veicoli parco;
+} stazione;
+
+typedef struct autostrada
+{
+    stazione *stazioni; // lista inizialmente con 100 stazioni poi se sforo ne aggiungo altre 100 dinamicamente ogni volta
+    int actual_size;
+    int actual_capacity;
+} autostrada;//si suppone che per file si descriva una sola autosrada
+
+typedef struct viaggio
+{
+    // si assume che stazione[0] sia la stazione di partenza e stazione[max_dim] la stazione di arrivo
+    stazione *tappa;
+} viaggio;
