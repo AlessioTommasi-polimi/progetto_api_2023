@@ -54,7 +54,7 @@ void controller(char *command){
     }
     else if (strcmp(command, "aggiungi-auto") == 0)
     {
-        //addautostrada();
+        addAuto();
     }
     else if (strcmp(command, "rottama-auto") == 0)
     {
@@ -93,6 +93,26 @@ void addStation(){
         add_auto(&highway.stazioni[highway.actual_size - 1].parco, v);
     }
 
+}
+
+void addAuto(){
+    int distance, autonomia;
+    veicolo v;
+    parco_veicoli *p;
+    argument = strtok(NULL, " ");
+    distance = atoi(argument);
+
+    argument = strtok(NULL, " ");
+    autonomia = atoi(argument);
+
+    v.autonomia = autonomia;
+    p = get_parco(distance);
+    if(p== NULL){
+        ErrorAdd();
+        return;
+    }
+    add_auto(p, v);
+    SuccessAdd();
 }
 
 void plan(){

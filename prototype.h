@@ -4,6 +4,8 @@ void controller(char *command);
 
 void addStation();
 
+void addAuto();
+
 void plan();
 
 void init();
@@ -31,3 +33,6 @@ void init_parco(struct parco_veicoli *p, int initial_auto);
 void add_auto(parco_veicoli *p, veicolo v);
 
 void add_station(stazione s, int initial_auto);
+
+/*getter of list*/
+parco_veicoli *get_parco(int distanza);

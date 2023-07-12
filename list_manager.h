@@ -102,3 +102,15 @@ void add_station(stazione s, int initial_auto)
     // siccome ho numero di veicoli quando faccio un add station lo faccio li!
     init_parco(&highway.stazioni[index].parco, initial_auto);
 }
+
+parco_veicoli *get_parco(int distanza)
+{
+    for (size_t i = 0; i < highway.actual_size; i++)
+    {
+        if (highway.stazioni[i].distanza_da_inizio_autostada == distanza)
+        {
+            return &highway.stazioni[i].parco;
+        }
+    }
+    return NULL;
+}
