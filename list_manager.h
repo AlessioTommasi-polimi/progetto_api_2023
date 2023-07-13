@@ -1,5 +1,5 @@
 #define INITIAL_STATION 50
-#define INITIAL_AUTO 100 //COMUNQUE MAX SONO 512
+#define INITIAL_AUTO 200 //COMUNQUE MAX SONO 512
 
 void free_autostrada()
 {
@@ -13,6 +13,12 @@ void free_autostrada()
     highway.stazioni = NULL;
     highway.actual_size = 0;
     highway.actual_capacity = 0;
+}
+
+void free_viaggio(viaggio *v)
+{
+    free(v->tappa);
+    v->num_tappe = -2;
 }
 
 void free_parck(struct parco_veicoli* p)
@@ -42,6 +48,15 @@ void init_parco(parco_veicoli *p,int initial_auto)
     p->curr_max = get_max_auto(p);
 
 }
+
+void init_viaggio(viaggio *v, int max_dim,veicolo macchina){
+    v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
+    v->num_tappe = -1; // inizializzo a -1 caso in cui non trovo nessun percorso
+    v->current_machine = macchina;//perfetto cosi assegno una copia e non rischio di modificare!
+    v->current_machine.index = -1;//non serve a nulla sapere index del parco di questa macchina cosi li inizializzo a -1 per non fare errori concettuali!
+}
+
+//SETTER & MODIFICATORI
 
 //non conviene ternerla ordinata, basta che mi salvo il massimo
 //ORDINAMENTO PER AUTONOMIA: autonomia crescente
@@ -184,7 +199,7 @@ int demolisci_stazione(int distanza)
     {
         return -1;
     }
-    
+
     //libero memoria
     free_parck(&highway.stazioni[index].parco);
 
@@ -197,6 +212,32 @@ int demolisci_stazione(int distanza)
     return 0;
 }
 
+void calulate_plan(viaggio *v, int index_partenza, int index_arrivo){
+    if (index_partenza < index_arrivo)
+    {
+        if (highway.stazioni[index_arrivo].distanza_da_inizio_autostada - highway.stazioni[index_partenza].distanza_da_inizio_autostada < v->current_machine.autonomia)
+        {
+            return;
+        }else{
+            //devo certamente fare un cambio auto! prima che finica l autonomia!
+
+        }
+        
+      
+
+    }
+    
+    highway.stazioni[index_partenza].parco.curr_max;
+    //TODO
+    if (v->num_tappe == -1)
+    {
+        return;
+    }
+    
+
+}
+
+//GETTERS
 parco_veicoli *get_parco(int distanza)
 {
     for (size_t i = 0; i < highway.actual_size; i++)
@@ -234,4 +275,43 @@ veicolo get_max_auto(parco_veicoli *p){
     return p->curr_max;
 }
 
+//ritorna indice della stazione se c'è una stazione alla distanza passata altrimenti -1
+int get_index_station(int distanza)
+{
+    for (size_t i = 0; i < highway.actual_size; i++)
+    {
+        if (highway.stazioni[i].distanza_da_inizio_autostada == distanza)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 
+// da richiamare <=> index_partenza < index_arrivo
+// ritorna indice della stazione raggiungibile altrimenti index_partenza se non ne posso raggiungere
+int get_index_max_raggiungible_station_cres(int index_partenza,int curr_autonomia/*distanza_partenza + autonomia macchina*/)
+{
+    for (size_t i = index_partenza; i < highway.actual_size; i++)
+    {
+        if (highway.stazioni[i].distanza_da_inizio_autostada - highway.stazioni[index_partenza].distanza_da_inizio_autostada > curr_autonomia)
+        {
+            return i-1;
+        }
+    }
+    return highway.actual_size;
+}
+
+// da richiamare <=> index_partenza > index_arrivo
+// ritorna indice della stazione raggiungibile altrimenti index_partenza se non ne posso raggiungere
+int get_index_max_raggiungible_station_desh(int index_partenza, int curr_autonomia /*distanza_partenza + autonomia macchina*/)
+{
+    for (size_t i = index_partenza; i >=0; i--)
+    {
+        if (highway.stazioni[index_partenza].distanza_da_inizio_autostada - highway.stazioni[i].distanza_da_inizio_autostada > curr_autonomia)
+        {
+            return i + 1;
+        }
+    }
+    return 0;
+}

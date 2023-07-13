@@ -166,7 +166,41 @@ void rottamaAuto(){
 
 }
 
-void plan(){//TODO
-    printf("nessun percorso");
+/*
+* minor numero di tappe possibili
+*CASO IN CUI PIU PERCORSI HANNO LO STESSO NUMERO DI TAPPE
+* si predilige le tappe con la distanza piu breve dall inizio dell autostrada (ovveri dist_partenza)
+
+*/
+
+void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
+    int dist_partenza, dist_arrivo, index_partenza, index_arrivo;
+    viaggio v;
+    
+    argument = strtok(NULL, " ");
+    dist_partenza = atoi(argument);
+
+    argument = strtok(NULL, " ");
+    dist_arrivo = atoi(argument);
+
+    index_partenza = get_index_station(dist_partenza);
+    index_arrivo = get_index_station(dist_arrivo);
+
+    if (index_partenza == -1 || index_arrivo == -1)
+    {
+        ErrorPianifica();
+        return;
+    }
+
+    init_viaggio(&v,abs(index_arrivo - index_partenza),highway.stazioni[index_partenza].parco.curr_max);
+
+    calulate_plan(&v, index_partenza, index_arrivo);
+
+    if (v.num_tappe == -1)
+    {
+        ErrorPianifica();
+        return;
+    }
+    ErrorPianifica();
 
 }

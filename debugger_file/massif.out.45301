@@ -1,0 +1,1324 @@
+desc: (none)
+cmd: ./exe
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=3715725
+mem_heap_B=1536
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=3938194
+mem_heap_B=8008
+mem_heap_extra_B=1408
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=4250137
+mem_heap_B=25344
+mem_heap_extra_B=1512
+mem_stacks_B=0
+heap_tree=detailed
+n9: 25344 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 7544 0x10000336D: add_station (in ./exe)
+  n1: 7544 0x100003857: addStation (in ./exe)
+   n1: 7544 0x1000036CF: setVar (in ./exe)
+    n0: 7544 0x100003541: main (in ./exe)
+ n3: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n2: 2080 0x7FF80F0E4C05: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+     n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+      n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+       n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+         n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+          n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+            n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+             n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+              n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+               n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                  n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                   n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                     n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                      n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                       n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+   n0: 192 in 1 place, below massif's threshold (1.00%)
+  n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+     n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+      n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+       n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+         n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+          n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+            n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+              n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+               n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                  n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                   n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                     n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                      n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+  n0: 192 in 1 place, below massif's threshold (1.00%)
+ n0: 1600 0x100003524: main (in ./exe)
+ n1: 1536 0x7FF80F0E1532: _objc_init (in /usr/lib/libobjc.A.dylib)
+  n1: 1536 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+   n1: 1536 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+    n1: 1536 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+     n1: 1536 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+      n1: 1536 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+       n1: 1536 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+        n1: 1536 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+         n1: 1536 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+          n1: 1536 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+           n1: 1536 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+            n1: 1536 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1536 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+              n1: 1536 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+               n0: 1536 0x1000154D3: (below main) (in /usr/lib/dyld)
+ n1: 672 0x7FF80F0E64D1: class_createInstance (in /usr/lib/libobjc.A.dylib)
+  n1: 672 0x7FF80F09BA30: _os_object_alloc_realized (in /usr/lib/system/libdispatch.dylib)
+   n0: 672 in 5 places, all below massif's threshold (1.00%)
+ n2: 576 0x7FF80F0E39D5: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+  n1: 528 0x7FF80F0E4100: protocols() (in /usr/lib/libobjc.A.dylib)
+   n1: 528 0x7FF80F0E29A1: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+    n1: 528 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+     n1: 528 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+      n1: 528 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+       n1: 528 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 528 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+         n1: 528 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+          n1: 528 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 528 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+            n1: 528 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+             n1: 528 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+              n1: 528 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+               n1: 528 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                n1: 528 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                 n1: 528 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                  n1: 528 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                   n1: 528 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 528 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                     n1: 528 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                      n1: 528 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                       n0: 528 0x1000154D3: (below main) (in /usr/lib/dyld)
+  n0: 48 in 1 place, below massif's threshold (1.00%)
+ n2: 558 0x7FF80EF9F5D8: _xpc_alloc (in /usr/lib/system/libxpc.dylib)
+  n1: 494 0x7FF80EF88261: _xpc_dictionary_insert (in /usr/lib/system/libxpc.dylib)
+   n0: 494 in 2 places, all below massif's threshold (1.00%)
+  n0: 64 in 1 place, below massif's threshold (1.00%)
+ n0: 506 in 12 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=4490770
+mem_heap_B=31688
+mem_heap_extra_B=1568
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=4836858
+mem_heap_B=44600
+mem_heap_extra_B=1744
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=5111471
+mem_heap_B=56824
+mem_heap_extra_B=1896
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=5440354
+mem_heap_B=70736
+mem_heap_extra_B=2056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=5730028
+mem_heap_B=82056
+mem_heap_extra_B=2152
+mem_stacks_B=0
+heap_tree=detailed
+n6: 82056 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 62656 0x10000336D: add_station (in ./exe)
+  n1: 62656 0x100003857: addStation (in ./exe)
+   n1: 62656 0x1000036CF: setVar (in ./exe)
+    n0: 62656 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n3: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n2: 2080 0x7FF80F0E4C05: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+     n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+      n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+       n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+         n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+          n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+            n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+             n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+              n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+               n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                  n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                   n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                     n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                      n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                       n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+   n0: 192 in 1 place, below massif's threshold (1.00%)
+  n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+     n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+      n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+       n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+         n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+          n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+            n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+              n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+               n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                  n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                   n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                     n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                      n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+  n0: 192 in 1 place, below massif's threshold (1.00%)
+ n1: 3200 0x100003255: add_station (in ./exe)
+  n1: 3200 0x100003857: addStation (in ./exe)
+   n1: 3200 0x1000036CF: setVar (in ./exe)
+    n0: 3200 0x100003541: main (in ./exe)
+ n0: 2312 in 16 places, all below massif's threshold (1.00%)
+ n1: 1536 0x7FF80F0E1532: _objc_init (in /usr/lib/libobjc.A.dylib)
+  n1: 1536 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+   n1: 1536 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+    n1: 1536 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+     n1: 1536 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+      n1: 1536 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+       n1: 1536 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+        n1: 1536 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+         n1: 1536 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+          n1: 1536 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+           n1: 1536 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+            n1: 1536 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1536 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+              n1: 1536 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+               n0: 1536 0x1000154D3: (below main) (in /usr/lib/dyld)
+#-----------
+snapshot=9
+#-----------
+time=5949222
+mem_heap_B=92088
+mem_heap_extra_B=2272
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=6200952
+mem_heap_B=103944
+mem_heap_extra_B=2392
+mem_stacks_B=0
+heap_tree=detailed
+n6: 103944 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 84544 0x10000336D: add_station (in ./exe)
+  n1: 84544 0x100003857: addStation (in ./exe)
+   n1: 84544 0x1000036CF: setVar (in ./exe)
+    n0: 84544 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n3: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n2: 2080 0x7FF80F0E4C05: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+     n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+      n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+       n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+         n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+          n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+            n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+             n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+              n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+               n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                  n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                   n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                     n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                      n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                       n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+   n0: 192 in 1 place, below massif's threshold (1.00%)
+  n1: 1888 0x7FF80F0E2E1F: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+   n1: 1888 0x7FF80F0E17B5: map_images (in /usr/lib/libobjc.A.dylib)
+    n1: 1888 0x10001F2CA: invocation function for block in dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+     n1: 1888 0x10001A798: dyld4::RuntimeState::withLoadersReadLock(void ( block_pointer)()) (in /usr/lib/dyld)
+      n1: 1888 0x10001F1B1: dyld4::RuntimeState::setObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+       n1: 1888 0x100032A84: dyld4::APIs::_dyld_objc_notify_register(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+        n1: 1888 0x7FF80F0E1625: _objc_init (in /usr/lib/libobjc.A.dylib)
+         n1: 1888 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+          n1: 1888 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+           n1: 1888 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+            n1: 1888 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1888 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+              n1: 1888 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+               n1: 1888 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+                n1: 1888 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+                 n1: 1888 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+                  n1: 1888 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                   n1: 1888 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+                    n1: 1888 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+                     n1: 1888 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+                      n0: 1888 0x1000154D3: (below main) (in /usr/lib/dyld)
+  n0: 192 in 1 place, below massif's threshold (1.00%)
+ n1: 3200 0x100003255: add_station (in ./exe)
+  n1: 3200 0x100003857: addStation (in ./exe)
+   n1: 3200 0x1000036CF: setVar (in ./exe)
+    n0: 3200 0x100003541: main (in ./exe)
+ n0: 2312 in 16 places, all below massif's threshold (1.00%)
+ n1: 1536 0x7FF80F0E1532: _objc_init (in /usr/lib/libobjc.A.dylib)
+  n1: 1536 0x7FF80F09B992: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+   n1: 1536 0x7FF80F0A91B7: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+    n1: 1536 0x7FF81A424897: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+     n1: 1536 0x100024DDA: invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+      n1: 1536 0x10004B256: invocation function for block in dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+       n1: 1536 0x100042859: invocation function for block in dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+        n1: 1536 0x100011DB2: dyld3::MachOFile::forEachLoadCommand(Diagnostics&, void ( block_pointer)(load_command const*, bool&)) const (in /usr/lib/dyld)
+         n1: 1536 0x1000425EA: dyld3::MachOFile::forEachSection(void ( block_pointer)(dyld3::MachOFile::SectionInfo const&, bool, bool&)) const (in /usr/lib/dyld)
+          n1: 1536 0x10004ADAD: dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&, dyld3::MachOAnalyzer::VMAddrConverter const&, void ( block_pointer)(unsigned int), void const*) const (in /usr/lib/dyld)
+           n1: 1536 0x100024D0D: dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+            n1: 1536 0x10002B229: dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&) const (in /usr/lib/dyld)
+             n1: 1536 0x100038495: dyld4::APIs::runAllInitializersForMain() (in /usr/lib/dyld)
+              n1: 1536 0x10001637C: dyld4::prepare(dyld4::APIs&, dyld3::MachOAnalyzer const*) (in /usr/lib/dyld)
+               n0: 1536 0x1000154D3: (below main) (in /usr/lib/dyld)
+#-----------
+snapshot=11
+#-----------
+time=6655653
+mem_heap_B=122768
+mem_heap_extra_B=2584
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=6957514
+mem_heap_B=135072
+mem_heap_extra_B=2744
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=7346447
+mem_heap_B=150320
+mem_heap_extra_B=2904
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=7642766
+mem_heap_B=160768
+mem_heap_extra_B=3048
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=7999528
+mem_heap_B=175304
+mem_heap_extra_B=3208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=8203708
+mem_heap_B=183200
+mem_heap_extra_B=3288
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=8523559
+mem_heap_B=192960
+mem_heap_extra_B=3368
+mem_stacks_B=0
+heap_tree=detailed
+n5: 192960 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 170360 0x10000336D: add_station (in ./exe)
+  n1: 170360 0x100003857: addStation (in ./exe)
+   n1: 170360 0x1000036CF: setVar (in ./exe)
+    n0: 170360 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 6400 0x100003255: add_station (in ./exe)
+  n1: 6400 0x100003857: addStation (in ./exe)
+   n1: 6400 0x1000036CF: setVar (in ./exe)
+    n0: 6400 0x100003541: main (in ./exe)
+ n2: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 2080 in 2 places, all below massif's threshold (1.00%)
+  n1: 2080 0x7FF80F0E4C05: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+   n0: 2080 in 2 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=8898497
+mem_heap_B=208304
+mem_heap_extra_B=3592
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=9129849
+mem_heap_B=219112
+mem_heap_extra_B=3712
+mem_stacks_B=0
+heap_tree=detailed
+n5: 219112 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 196512 0x10000336D: add_station (in ./exe)
+  n1: 196512 0x100003857: addStation (in ./exe)
+   n1: 196512 0x1000036CF: setVar (in ./exe)
+    n0: 196512 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 6400 0x100003255: add_station (in ./exe)
+  n1: 6400 0x100003857: addStation (in ./exe)
+   n1: 6400 0x1000036CF: setVar (in ./exe)
+    n0: 6400 0x100003541: main (in ./exe)
+ n1: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 4160 in 3 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=9413246
+mem_heap_B=232192
+mem_heap_extra_B=3864
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=9707317
+mem_heap_B=243504
+mem_heap_extra_B=3984
+mem_stacks_B=0
+heap_tree=detailed
+n5: 243504 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 219304 0x10000336D: add_station (in ./exe)
+  n1: 219304 0x100003857: addStation (in ./exe)
+   n1: 219304 0x1000036CF: setVar (in ./exe)
+    n0: 219304 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 8000 0x100003255: add_station (in ./exe)
+  n1: 8000 0x100003857: addStation (in ./exe)
+   n1: 8000 0x1000036CF: setVar (in ./exe)
+    n0: 8000 0x100003541: main (in ./exe)
+ n1: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 4160 in 3 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=9924533
+mem_heap_B=253384
+mem_heap_extra_B=4096
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=10241548
+mem_heap_B=261704
+mem_heap_extra_B=4192
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=10525525
+mem_heap_B=273664
+mem_heap_extra_B=4336
+mem_stacks_B=0
+heap_tree=detailed
+n5: 273664 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 249464 0x10000336D: add_station (in ./exe)
+  n1: 249464 0x100003857: addStation (in ./exe)
+   n1: 249464 0x1000036CF: setVar (in ./exe)
+    n0: 249464 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 8000 0x100003255: add_station (in ./exe)
+  n1: 8000 0x100003857: addStation (in ./exe)
+   n1: 8000 0x1000036CF: setVar (in ./exe)
+    n0: 8000 0x100003541: main (in ./exe)
+ n1: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 4160 in 3 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=10974267
+mem_heap_B=288880
+mem_heap_extra_B=4512
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=11386287
+mem_heap_B=307800
+mem_heap_extra_B=4712
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=11727721
+mem_heap_B=318872
+mem_heap_extra_B=4824
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=11999604
+mem_heap_B=327760
+mem_heap_extra_B=4928
+mem_stacks_B=0
+heap_tree=detailed
+n5: 327760 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 301960 0x10000336D: add_station (in ./exe)
+  n1: 301960 0x100003857: addStation (in ./exe)
+   n1: 301960 0x1000036CF: setVar (in ./exe)
+    n0: 301960 0x100003541: main (in ./exe)
+ n1: 9600 0x100003255: add_station (in ./exe)
+  n1: 9600 0x100003857: addStation (in ./exe)
+   n1: 9600 0x1000036CF: setVar (in ./exe)
+    n0: 9600 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 4160 in 3 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=12302815
+mem_heap_B=340896
+mem_heap_extra_B=5072
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=12560271
+mem_heap_B=350624
+mem_heap_extra_B=5192
+mem_stacks_B=0
+heap_tree=detailed
+n5: 350624 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 324824 0x10000336D: add_station (in ./exe)
+  n1: 324824 0x100003857: addStation (in ./exe)
+   n1: 324824 0x1000036CF: setVar (in ./exe)
+    n0: 324824 0x100003541: main (in ./exe)
+ n1: 9600 0x100003255: add_station (in ./exe)
+  n1: 9600 0x100003857: addStation (in ./exe)
+   n1: 9600 0x1000036CF: setVar (in ./exe)
+    n0: 9600 0x100003541: main (in ./exe)
+ n2: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n1: 4096 0x7FF80F12B75A: __srefill0 (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F12B669: __srefill (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F1428AE: fgets (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x100003686: setVar (in ./exe)
+      n0: 4096 0x100003541: main (in ./exe)
+  n1: 4096 0x7FF80F144DD9: __swsetup (in /usr/lib/system/libsystem_c.dylib)
+   n1: 4096 0x7FF80F11E811: __v2printf (in /usr/lib/system/libsystem_c.dylib)
+    n1: 4096 0x7FF80F131C45: vfprintf_l (in /usr/lib/system/libsystem_c.dylib)
+     n1: 4096 0x7FF80F151058: printf (in /usr/lib/system/libsystem_c.dylib)
+      n1: 4096 0x1000036BC: setVar (in ./exe)
+       n0: 4096 0x100003541: main (in ./exe)
+ n1: 4160 0x7FF80F0E4B39: realizeClassWithoutSwift(objc_class*, objc_class*) (in /usr/lib/libobjc.A.dylib)
+  n0: 4160 in 3 places, all below massif's threshold (1.00%)
+ n0: 3848 in 17 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=12965973
+mem_heap_B=370888
+mem_heap_extra_B=5344
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=13234562
+mem_heap_B=377520
+mem_heap_extra_B=5432
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=13585296
+mem_heap_B=390360
+mem_heap_extra_B=5584
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=13845000
+mem_heap_B=401296
+mem_heap_extra_B=5688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=14102163
+mem_heap_B=412888
+mem_heap_extra_B=5800
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=14550769
+mem_heap_B=424744
+mem_heap_extra_B=5904
+mem_stacks_B=0
+heap_tree=detailed
+n4: 424744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 395744 0x10000336D: add_station (in ./exe)
+  n1: 395744 0x100003857: addStation (in ./exe)
+   n1: 395744 0x1000036CF: setVar (in ./exe)
+    n0: 395744 0x100003541: main (in ./exe)
+ n1: 12800 0x100003255: add_station (in ./exe)
+  n1: 12800 0x100003857: addStation (in ./exe)
+   n1: 12800 0x1000036CF: setVar (in ./exe)
+    n0: 12800 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=14750076
+mem_heap_B=432232
+mem_heap_extra_B=6024
+mem_stacks_B=0
+heap_tree=detailed
+n4: 432232 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 403232 0x10000336D: add_station (in ./exe)
+  n1: 403232 0x100003857: addStation (in ./exe)
+   n1: 403232 0x1000036CF: setVar (in ./exe)
+    n0: 403232 0x100003541: main (in ./exe)
+ n1: 12800 0x100003255: add_station (in ./exe)
+  n1: 12800 0x100003857: addStation (in ./exe)
+   n1: 12800 0x1000036CF: setVar (in ./exe)
+    n0: 12800 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=15025730
+mem_heap_B=438432
+mem_heap_extra_B=6136
+mem_stacks_B=0
+heap_tree=detailed
+n4: 438432 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 409432 0x10000336D: add_station (in ./exe)
+  n1: 409432 0x100003857: addStation (in ./exe)
+   n1: 409432 0x1000036CF: setVar (in ./exe)
+    n0: 409432 0x100003541: main (in ./exe)
+ n1: 12800 0x100003255: add_station (in ./exe)
+  n1: 12800 0x100003857: addStation (in ./exe)
+   n1: 12800 0x1000036CF: setVar (in ./exe)
+    n0: 12800 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=15433985
+mem_heap_B=446504
+mem_heap_extra_B=6208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=15681777
+mem_heap_B=455176
+mem_heap_extra_B=6320
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=15936616
+mem_heap_B=467712
+mem_heap_extra_B=6472
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=16163219
+mem_heap_B=474352
+mem_heap_extra_B=6552
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=16506913
+mem_heap_B=486280
+mem_heap_extra_B=6712
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=16773749
+mem_heap_B=498112
+mem_heap_extra_B=6872
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=17010211
+mem_heap_B=508824
+mem_heap_extra_B=6992
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=17303323
+mem_heap_B=520104
+mem_heap_extra_B=7080
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=17664311
+mem_heap_B=529208
+mem_heap_extra_B=7216
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=17921224
+mem_heap_B=536896
+mem_heap_extra_B=7296
+mem_stacks_B=0
+heap_tree=detailed
+n4: 536896 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 504696 0x10000336D: add_station (in ./exe)
+  n1: 504696 0x100003857: addStation (in ./exe)
+   n1: 504696 0x1000036CF: setVar (in ./exe)
+    n0: 504696 0x100003541: main (in ./exe)
+ n1: 16000 0x100003255: add_station (in ./exe)
+  n1: 16000 0x100003857: addStation (in ./exe)
+   n1: 16000 0x1000036CF: setVar (in ./exe)
+    n0: 16000 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=18191019
+mem_heap_B=544624
+mem_heap_extra_B=7368
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=18404039
+mem_heap_B=553544
+mem_heap_extra_B=7472
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=18615098
+mem_heap_B=561168
+mem_heap_extra_B=7552
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=18819980
+mem_heap_B=569880
+mem_heap_extra_B=7640
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=19020613
+mem_heap_B=579152
+mem_heap_extra_B=7720
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=19085969
+mem_heap_B=581216
+mem_heap_extra_B=7736
+mem_stacks_B=0
+heap_tree=detailed
+n4: 581216 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 547416 0x10000336D: add_station (in ./exe)
+  n1: 547416 0x100003857: addStation (in ./exe)
+   n1: 547416 0x1000036CF: setVar (in ./exe)
+    n0: 547416 0x100003541: main (in ./exe)
+ n1: 17600 0x100003255: add_station (in ./exe)
+  n1: 17600 0x100003857: addStation (in ./exe)
+   n1: 17600 0x1000036CF: setVar (in ./exe)
+    n0: 17600 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=55
+#-----------
+time=19286453
+mem_heap_B=588784
+mem_heap_extra_B=7808
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=19512278
+mem_heap_B=597640
+mem_heap_extra_B=7912
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=19632230
+mem_heap_B=601056
+mem_heap_extra_B=7944
+mem_stacks_B=0
+heap_tree=detailed
+n4: 601056 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 567256 0x10000336D: add_station (in ./exe)
+  n1: 567256 0x100003857: addStation (in ./exe)
+   n1: 567256 0x1000036CF: setVar (in ./exe)
+    n0: 567256 0x100003541: main (in ./exe)
+ n1: 17600 0x100003255: add_station (in ./exe)
+  n1: 17600 0x100003857: addStation (in ./exe)
+   n1: 17600 0x1000036CF: setVar (in ./exe)
+    n0: 17600 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=58
+#-----------
+time=19857596
+mem_heap_B=606536
+mem_heap_extra_B=8024
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=20082210
+mem_heap_B=615520
+mem_heap_extra_B=8096
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=20142611
+mem_heap_B=616672
+mem_heap_extra_B=8104
+mem_stacks_B=0
+heap_tree=detailed
+n4: 616672 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 582872 0x10000336D: add_station (in ./exe)
+  n1: 582872 0x100003857: addStation (in ./exe)
+   n1: 582872 0x1000036CF: setVar (in ./exe)
+    n0: 582872 0x100003541: main (in ./exe)
+ n1: 17600 0x100003255: add_station (in ./exe)
+  n1: 17600 0x100003857: addStation (in ./exe)
+   n1: 17600 0x1000036CF: setVar (in ./exe)
+    n0: 17600 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=61
+#-----------
+time=20347235
+mem_heap_B=624432
+mem_heap_extra_B=8208
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=20425062
+mem_heap_B=626600
+mem_heap_extra_B=8232
+mem_stacks_B=0
+heap_tree=detailed
+n4: 626600 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 592800 0x10000336D: add_station (in ./exe)
+  n1: 592800 0x100003857: addStation (in ./exe)
+   n1: 592800 0x1000036CF: setVar (in ./exe)
+    n0: 592800 0x100003541: main (in ./exe)
+ n1: 17600 0x100003255: add_station (in ./exe)
+  n1: 17600 0x100003857: addStation (in ./exe)
+   n1: 17600 0x1000036CF: setVar (in ./exe)
+    n0: 17600 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=63
+#-----------
+time=20632274
+mem_heap_B=636024
+mem_heap_extra_B=8336
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=20842419
+mem_heap_B=644784
+mem_heap_extra_B=8408
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=20938706
+mem_heap_B=647912
+mem_heap_extra_B=8440
+mem_stacks_B=0
+heap_tree=detailed
+n4: 647912 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 612512 0x10000336D: add_station (in ./exe)
+  n1: 612512 0x100003857: addStation (in ./exe)
+   n1: 612512 0x1000036CF: setVar (in ./exe)
+    n0: 612512 0x100003541: main (in ./exe)
+ n1: 19200 0x100003255: add_station (in ./exe)
+  n1: 19200 0x100003857: addStation (in ./exe)
+   n1: 19200 0x1000036CF: setVar (in ./exe)
+    n0: 19200 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=66
+#-----------
+time=21139918
+mem_heap_B=655784
+mem_heap_extra_B=8544
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=21357401
+mem_heap_B=663728
+mem_heap_extra_B=8624
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=21575205
+mem_heap_B=672424
+mem_heap_extra_B=8728
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=21784009
+mem_heap_B=681208
+mem_heap_extra_B=8808
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=21807452
+mem_heap_B=681208
+mem_heap_extra_B=8808
+mem_stacks_B=0
+heap_tree=detailed
+n4: 681208 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 645808 0x10000336D: add_station (in ./exe)
+  n1: 645808 0x100003857: addStation (in ./exe)
+   n1: 645808 0x1000036CF: setVar (in ./exe)
+    n0: 645808 0x100003541: main (in ./exe)
+ n1: 19200 0x100003255: add_station (in ./exe)
+  n1: 19200 0x100003857: addStation (in ./exe)
+   n1: 19200 0x1000036CF: setVar (in ./exe)
+    n0: 19200 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=71
+#-----------
+time=22028922
+mem_heap_B=691464
+mem_heap_extra_B=8920
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=22110262
+mem_heap_B=693704
+mem_heap_extra_B=8936
+mem_stacks_B=0
+heap_tree=detailed
+n4: 693704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 656704 0x10000336D: add_station (in ./exe)
+  n1: 656704 0x100003857: addStation (in ./exe)
+   n1: 656704 0x1000036CF: setVar (in ./exe)
+    n0: 656704 0x100003541: main (in ./exe)
+ n1: 20800 0x100003255: add_station (in ./exe)
+  n1: 20800 0x100003857: addStation (in ./exe)
+   n1: 20800 0x1000036CF: setVar (in ./exe)
+    n0: 20800 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=73
+#-----------
+time=22322017
+mem_heap_B=701304
+mem_heap_extra_B=9040
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=22374589
+mem_heap_B=702392
+mem_heap_extra_B=9048
+mem_stacks_B=0
+heap_tree=detailed
+n4: 702392 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 665392 0x10000336D: add_station (in ./exe)
+  n1: 665392 0x100003857: addStation (in ./exe)
+   n1: 665392 0x1000036CF: setVar (in ./exe)
+    n0: 665392 0x100003541: main (in ./exe)
+ n1: 20800 0x100003255: add_station (in ./exe)
+  n1: 20800 0x100003857: addStation (in ./exe)
+   n1: 20800 0x1000036CF: setVar (in ./exe)
+    n0: 20800 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=75
+#-----------
+time=22589736
+mem_heap_B=711336
+mem_heap_extra_B=9144
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=22793230
+mem_heap_B=719064
+mem_heap_extra_B=9232
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=22999968
+mem_heap_B=726920
+mem_heap_extra_B=9320
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=23200610
+mem_heap_B=734648
+mem_heap_extra_B=9408
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=23419960
+mem_heap_B=743288
+mem_heap_extra_B=9504
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=23552188
+mem_heap_B=749912
+mem_heap_extra_B=9560
+mem_stacks_B=0
+heap_tree=detailed
+n4: 749912 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 711312 0x10000336D: add_station (in ./exe)
+  n1: 711312 0x100003857: addStation (in ./exe)
+   n1: 711312 0x1000036CF: setVar (in ./exe)
+    n0: 711312 0x100003541: main (in ./exe)
+ n1: 22400 0x100003255: add_station (in ./exe)
+  n1: 22400 0x100003857: addStation (in ./exe)
+   n1: 22400 0x1000036CF: setVar (in ./exe)
+    n0: 22400 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=81
+#-----------
+time=23768112
+mem_heap_B=758312
+mem_heap_extra_B=9640
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=23980052
+mem_heap_B=766872
+mem_heap_extra_B=9736
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=83
+#-----------
+time=24191400
+mem_heap_B=775688
+mem_heap_extra_B=9832
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=24407346
+mem_heap_B=784392
+mem_heap_extra_B=9944
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=24437115
+mem_heap_B=784392
+mem_heap_extra_B=9944
+mem_stacks_B=0
+heap_tree=detailed
+n4: 784392 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 745792 0x10000336D: add_station (in ./exe)
+  n1: 745792 0x100003857: addStation (in ./exe)
+   n1: 745792 0x1000036CF: setVar (in ./exe)
+    n0: 745792 0x100003541: main (in ./exe)
+ n1: 22400 0x100003255: add_station (in ./exe)
+  n1: 22400 0x100003857: addStation (in ./exe)
+   n1: 22400 0x1000036CF: setVar (in ./exe)
+    n0: 22400 0x100003541: main (in ./exe)
+ n1: 8192 0x7FF80F1361FA: __smakebuf (in /usr/lib/system/libsystem_c.dylib)
+  n0: 8192 in 2 places, all below massif's threshold (1.00%)
+ n0: 8008 in 18 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=86
+#-----------
+time=24642090
+mem_heap_B=792624
+mem_heap_extra_B=10032
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=24870245
+mem_heap_B=802912
+mem_heap_extra_B=10128
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=25219321
+mem_heap_B=805952
+mem_heap_extra_B=10168
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=192391181
+mem_heap_B=810360
+mem_heap_extra_B=10224
+mem_stacks_B=0
+heap_tree=peak
+n3: 810360 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 770160 0x10000336D: add_station (in ./exe)
+  n1: 770160 0x100003857: addStation (in ./exe)
+   n1: 770160 0x1000036CF: setVar (in ./exe)
+    n0: 770160 0x100003541: main (in ./exe)
+ n1: 24000 0x100003255: add_station (in ./exe)
+  n1: 24000 0x100003857: addStation (in ./exe)
+   n1: 24000 0x1000036CF: setVar (in ./exe)
+    n0: 24000 0x100003541: main (in ./exe)
+ n0: 16200 in 19 places, all below massif's threshold (1.00%)

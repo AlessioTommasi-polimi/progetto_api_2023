@@ -51,6 +51,14 @@ void SuccessDemolisci()
     printf("demolita\n");
 }
 
+void ErrorPianifica(){
+    printf("nessun percorso");
+}
+
+void SuccessPianifica(){
+    //stampa le tappe in ordine di percorrenza 
+}
+
 void printHighway(){
     printf("\nHighway:{\n");
     printf("  \"Size\": %d,\n", highway.actual_size);
