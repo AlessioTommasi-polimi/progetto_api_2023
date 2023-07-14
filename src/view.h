@@ -61,7 +61,7 @@ void SuccessPianifica(viaggio *v)
     printf("\n");
     for (size_t i = 0; i < v->num_tappe; i++)
     {
-        printf("%d ", v->tappa[i].distanza_da_inizio_autostrada);
+        printf("%d ", v->tappa[v->num_tappe -i -1].distanza_da_inizio_autostrada);
     }
     
 }

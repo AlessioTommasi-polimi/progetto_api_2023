@@ -35,5 +35,4 @@ typedef struct viaggio
     //actualcapacity viene automaticamente inizializzata come sem i fermassi in tutte le stazioni da partenza ad arrivo!
     // si assume che stazione[0] sia la stazione di partenza e stazione[max_dim] la stazione di arrivo
     stazione *tappa;
-    veicolo current_machine;
 } viaggio;

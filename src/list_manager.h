@@ -1,6 +1,6 @@
 #define INITIAL_STATION 50
 #define INITIAL_AUTO 200 //COMUNQUE MAX SONO 512
-//git pls
+
 void free_autostrada()
 {
     //libero i parchi
@@ -52,8 +52,6 @@ void init_parco(parco_veicoli *p,int initial_auto)
 void init_viaggio(viaggio *v, int max_dim,veicolo macchina){
     v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
     v->num_tappe = -1; // inizializzo a -1 caso in cui non trovo nessun percorso
-    v->current_machine = macchina;//perfetto cosi assegno una copia e non rischio di modificare!
-    v->current_machine.index = -1;//non serve a nulla sapere index del parco di questa macchina cosi li inizializzo a -1 per non fare errori concettuali!
 }
 
 //SETTER & MODIFICATORI
@@ -215,61 +213,32 @@ int demolisci_stazione(int distanza)
     return 0;
 }
 
-
 // Funzione per calcolare il piano di viaggio
+// ATTENZIONE TAPPE E'RITORNATO IN ORDINE INVERSO!!
+// la prima tappa da stampare e'quella in posizione v->num_tappe-1
 void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
 {
-    int curr_index = index_partenza; // Inizialmente si parte dalla stazione di partenza
+    int curr_index = index_arrivo; // Inizialmente si parte dalla stazione di partenza
     int num_tappe = 0;
-    int max_ragg_index = -1;
-
-    // Calcolo del numero minimo di tappe
-    while ((curr_index < index_arrivo) && (max_ragg_index < index_arrivo))
+    
+    curr_index = get_best_station(index_partenza, curr_index);
+    while (curr_index > index_partenza)
     {
-        max_ragg_index = get_index_max_raggiungible_station_cres(curr_index, v->current_machine.autonomia);
-        
-        // Controllo se conviene fermarsi in una stazione precedente per cambiare veicolo
-        int best_index = -1;
-        int best_autonomia = v->current_machine.autonomia;
-
-        for (int j = curr_index; j > index_partenza; j--)
-        {
-            if (highway.stazioni[j].parco.curr_max.autonomia >= best_autonomia)
-            {
-                best_index = j;
-                best_autonomia = highway.stazioni[j].parco.curr_max.autonomia;
-            }
-        }
-
-        if (best_index != -1 && (max_ragg_index == curr_index   || 
-            /*autonomia che ho col veicolo in posizione best_index basta ad arrivare a destinazione*/
-            best_autonomia > (highway.stazioni[max_ragg_index].distanza_da_inizio_autostrada - highway.stazioni[curr_index].distanza_da_inizio_autostrada)))
-        {
-            // Fermarsi in una stazione precedente per cambiare veicolo
-            curr_index = best_index;
-            v->current_machine = highway.stazioni[best_index].parco.curr_max;
-            v->tappa[num_tappe] = highway.stazioni[best_index];
-            num_tappe++;
-            printf("Tappa %d: Dist stazione:%d  best index: %d \n", num_tappe, highway.stazioni[curr_index].distanza_da_inizio_autostrada, best_index);
-        }
-        else
-        {
-            // Continuare al prossimo index raggiungibile
-            if (max_ragg_index == curr_index) // Non è possibile raggiungere la stazione successiva!
-            {
-                //.DEBUG
-                printf("Non è possibile raggiungere la stazione di arrivo.\n");
-                return;
-            }
-            curr_index = max_ragg_index;
-            //.DEBUG
-        }
         //.DEBUG
-        printf("\n max_ragg_index: %d\n curr_index: %d \n curr_autonomia: %d\n", max_ragg_index, curr_index, v->current_machine.autonomia);
+        //printf("curr_index: %d\n", curr_index);
+        if (curr_index == index_arrivo)
+        {
+            // Non è stato possibile trovare un percorso
+            v->num_tappe = -1;
+            return;
+        }
+        v->tappa[num_tappe] = highway.stazioni[curr_index];
+        num_tappe++;
+        curr_index = get_best_station(index_partenza, curr_index);
     }
     v->num_tappe = num_tappe;
     //.DEBUG
-    printf("Numero di tappe: %d\n", num_tappe);
+    //printf("Numero di tappe: %d\n", num_tappe);
 }
 
 //GETTERS
@@ -349,4 +318,31 @@ int get_index_max_raggiungible_station_desh(int index_partenza, int curr_autonom
         }
     }
     return 0;
+}
+
+// ritrona indice della stazione con autonomia migliore
+// da richiamare <=> index_partenza < index_arrivo
+// ritorna index_arrivo se la stazione di arrivo non e' raggiungibile da nessuna stazione da index_partenza
+int get_best_station(int index_partenza, int index_arrivo){
+    //.DEBUG
+    //printf("index_partenza: %d, index_arrivo: %d\n", index_partenza, index_arrivo);
+
+    stazione current_station = highway.stazioni[index_arrivo];
+    for (int i = index_arrivo-1; i >= index_partenza; i--)
+    {
+        //.DEBUG
+        //printf("\n current_station: %d\n, i: %d\n", current_station.index, i);
+
+        /*mi permette di arrivare a stazione finale ed e'la piu piccola possibile*/
+        if (highway.stazioni[i].parco.curr_max.autonomia + highway.stazioni[i].distanza_da_inizio_autostrada >= highway.stazioni[index_arrivo].distanza_da_inizio_autostrada)
+        {
+            //.DEBUG
+            //printf("\n urr_max.autonomia: %d\n, stazioni[i].distanza_da_inizio_autostrada: %d\n, stazioni[index_arrivo].distanza_da_inizio_autostrada: %d", highway.stazioni[i].parco.curr_max.autonomia, highway.stazioni[i].distanza_da_inizio_autostrada, highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
+            current_station = highway.stazioni[i];
+        }
+        
+    }
+    //.DEBUG
+    //printf("\n end currwnt: %d\n", current_station.index);
+    return current_station.index;
 }

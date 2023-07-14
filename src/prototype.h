@@ -76,3 +76,5 @@ int get_index_station(int distanza);
 int get_index_max_raggiungible_station_cres(int index_partenza, int curr_autonomia /*distanza_partenza + autonomia macchina*/);
 
 int get_index_max_raggiungible_station_desh(int index_partenza, int curr_autonomia /*distanza_partenza + autonomia macchina*/);
+
+int get_best_station(int index_partenza, int index_arrivo);
