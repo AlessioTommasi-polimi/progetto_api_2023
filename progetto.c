@@ -78,7 +78,7 @@ void addStation(){
     num_auto = atoi(argument);
 
     stazione s;
-    s.distanza_da_inizio_autostada = distance;
+    s.distanza_da_inizio_autostrada = distance;
     index = add_station(s, num_auto);
     if (index == -1)
     {

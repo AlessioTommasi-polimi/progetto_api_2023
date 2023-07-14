@@ -69,7 +69,7 @@ void printHighway(){
     {
         printf("        {\n");
         printf("          \"Stazione\": %d,\n", i + 1);
-        printf("          \"Distanza\": %d,\n", highway.stazioni[i].distanza_da_inizio_autostada);
+        printf("          \"Distanza\": %d,\n", highway.stazioni[i].distanza_da_inizio_autostrada);
         printf("          \"Index\": %d,\n", highway.stazioni[i].index);
         printparcoVeicoli(&highway.stazioni[i].parco);
         printf("   }%s\n", (i < highway.actual_size - 1) ? "," : "");   

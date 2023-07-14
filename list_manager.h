@@ -50,7 +50,7 @@ void init_parco(parco_veicoli *p,int initial_auto)
 }
 
 void init_viaggio(viaggio *v, int max_dim,veicolo macchina){
-    v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
+    //v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
     v->num_tappe = -1; // inizializzo a -1 caso in cui non trovo nessun percorso
     v->current_machine = macchina;//perfetto cosi assegno una copia e non rischio di modificare!
     v->current_machine.index = -1;//non serve a nulla sapere index del parco di questa macchina cosi li inizializzo a -1 per non fare errori concettuali!
@@ -142,6 +142,8 @@ int rottama_auto(parco_veicoli *p, veicolo v){
     return 0;
 }
 
+
+//IN REALTA POTREI OTTIMIZZARE ORDINANDOLA SOLO ALLA FINE!
 //ordina in base alla distanza crescente!
 //ritorna indice di dove ho aggiunto la NUOVA stazione o -1 se non ho aggiunto
 int add_station(stazione s, int initial_auto)
@@ -155,9 +157,9 @@ int add_station(stazione s, int initial_auto)
     
     int index = 0;
 
-    while (index < highway.actual_size && highway.stazioni[index].distanza_da_inizio_autostada <= s.distanza_da_inizio_autostada)
+    while (index < highway.actual_size && highway.stazioni[index].distanza_da_inizio_autostrada <= s.distanza_da_inizio_autostrada)
     {
-        if (highway.stazioni[index].distanza_da_inizio_autostada == s.distanza_da_inizio_autostada)
+        if (highway.stazioni[index].distanza_da_inizio_autostrada == s.distanza_da_inizio_autostrada)
         {
             return -1;
         }
@@ -186,7 +188,7 @@ int demolisci_stazione(int distanza)
     int index = -1;
     for (size_t i = 0; i < highway.actual_size; i++)
     {
-        if (highway.stazioni[i].distanza_da_inizio_autostada == distanza)
+        if (highway.stazioni[i].distanza_da_inizio_autostrada == distanza)
         {
             index = i;
             //.DEBUG
@@ -212,10 +214,10 @@ int demolisci_stazione(int distanza)
     return 0;
 }
 
-void calulate_plan(viaggio *v, int index_partenza, int index_arrivo){
+void calulate_plan_old(viaggio *v, int index_partenza, int index_arrivo){
     if (index_partenza < index_arrivo)
     {
-        if (highway.stazioni[index_arrivo].distanza_da_inizio_autostada - highway.stazioni[index_partenza].distanza_da_inizio_autostada < v->current_machine.autonomia)
+        if (highway.stazioni[index_arrivo].distanza_da_inizio_autostrada - highway.stazioni[index_partenza].distanza_da_inizio_autostrada < v->current_machine.autonomia)
         {
             return;
         }else{
@@ -237,12 +239,61 @@ void calulate_plan(viaggio *v, int index_partenza, int index_arrivo){
 
 }
 
+// Funzione per calcolare il piano di viaggio
+void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
+{
+    int curr_index = index_partenza; // Inizialmente si parte dalla stazione di partenza
+    int num_tappe = 0;
+    int i;
+
+    // Calcolo del numero minimo di tappe
+    while (curr_index < index_arrivo)
+    {
+        int next_index = get_index_max_raggiungibile_station_cres(curr_index, v->current_machine.autonomia);
+
+        // Controllo se conviene fermarsi in una stazione precedente per cambiare veicolo
+        int best_index = -1;
+        int best_autonomia = v->current_machine.autonomia;
+        for (int j = curr_index - 1; j >= index_partenza; j--)
+        {
+            if (highway.stazioni[j].parco.curr_max.autonomia >= best_autonomia)
+            {
+                best_index = j;
+                best_autonomia = highway.stazioni[j].parco.curr_max.autonomia;
+            }
+        }
+
+        if (best_index != -1 && (next_index == curr_index || best_autonomia > (highway.stazioni[next_index].distanza_da_inizio_autostrada - highway.stazioni[curr_index].distanza_da_inizio_autostrada)))
+        {
+            // Fermarsi in una stazione precedente per cambiare veicolo
+            curr_index = best_index;
+            v->current_machine = highway.stazioni[curr_index].parco.curr_max;
+            v->tappa[num_tappe] = highway.stazioni[curr_index];
+        }
+        else
+        {
+            // Continuare al prossimo index raggiungibile
+            if (next_index == curr_index) // Non è possibile raggiungere la stazione successiva!
+            {
+                //.DEBUG
+                //printf("Non è possibile raggiungere la stazione di arrivo.\n");
+                return;
+            }
+            curr_index = next_index;
+            v->tappa[num_tappe] = highway.stazioni[curr_index];
+        }
+
+        num_tappe++;
+    }
+
+}
+
 //GETTERS
 parco_veicoli *get_parco(int distanza)
 {
     for (size_t i = 0; i < highway.actual_size; i++)
     {
-        if (highway.stazioni[i].distanza_da_inizio_autostada == distanza)
+        if (highway.stazioni[i].distanza_da_inizio_autostrada == distanza)
         {
             return &highway.stazioni[i].parco;
         }
@@ -280,7 +331,7 @@ int get_index_station(int distanza)
 {
     for (size_t i = 0; i < highway.actual_size; i++)
     {
-        if (highway.stazioni[i].distanza_da_inizio_autostada == distanza)
+        if (highway.stazioni[i].distanza_da_inizio_autostrada == distanza)
         {
             return i;
         }
@@ -294,7 +345,7 @@ int get_index_max_raggiungible_station_cres(int index_partenza,int curr_autonomi
 {
     for (size_t i = index_partenza; i < highway.actual_size; i++)
     {
-        if (highway.stazioni[i].distanza_da_inizio_autostada - highway.stazioni[index_partenza].distanza_da_inizio_autostada > curr_autonomia)
+        if (highway.stazioni[i].distanza_da_inizio_autostrada - highway.stazioni[index_partenza].distanza_da_inizio_autostrada > curr_autonomia)
         {
             return i-1;
         }
@@ -308,7 +359,7 @@ int get_index_max_raggiungible_station_desh(int index_partenza, int curr_autonom
 {
     for (size_t i = index_partenza; i >=0; i--)
     {
-        if (highway.stazioni[index_partenza].distanza_da_inizio_autostada - highway.stazioni[i].distanza_da_inizio_autostada > curr_autonomia)
+        if (highway.stazioni[index_partenza].distanza_da_inizio_autostrada - highway.stazioni[i].distanza_da_inizio_autostrada > curr_autonomia)
         {
             return i + 1;
         }

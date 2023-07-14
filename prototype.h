@@ -64,6 +64,8 @@ void free_parck(parco_veicoli *p);
 
 void free_viaggio(viaggio *v);
 
+void calulate_plan_old(viaggio *v, int index_partenza, int index_arrivo);
+
 void calulate_plan(viaggio *v, int index_partenza, int index_arrivo);
 
 /*getter of list*/

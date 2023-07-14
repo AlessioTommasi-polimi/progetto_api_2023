@@ -16,7 +16,7 @@ typedef struct parco_veicoli
 typedef struct stazione
 {
     //se eliminata distanza da inizio autostrada diventa -1  && index = -1
-    int distanza_da_inizio_autostada; // i veicolo possono raggiungere la stazione solo se sono autonomia > distanza_da_inizio_autostada
+    int distanza_da_inizio_autostrada; // i veicolo possono raggiungere la stazione solo se sono autonomia > distanza_da_inizio_autostrada
     int index;                        // indice della stazione indica indice in cui e posizionara stazione rispetto tutte le altre dell autostrada!
     // serve per ottimizzare al massimo il fatto che non si possa tornare indieto!
     parco_veicoli parco;
