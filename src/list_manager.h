@@ -346,3 +346,36 @@ int get_best_station(int index_partenza, int index_arrivo){
     //printf("\n end currwnt: %d\n", current_station.index);
     return current_station.index;
 }
+
+// ritrona indice della stazione con autonomia migliore
+// da richiamare <=> index_partenza > index_arrivo
+// ritorna index_arrivo se la stazione di arrivo non e' raggiungibile da nessuna stazione da index_partenza
+/*NOPE*/
+int get_best_station_reverse(int index_partenza, int index_arrivo)
+{
+
+    stazione current_station = highway.stazioni[index_arrivo];
+
+    //.DEBUG
+    // printf("index_partenza: %d, index_arrivo: %d\n", index_partenza, index_arrivo);
+    int ap = index_partenza;
+    index_partenza = index_arrivo;
+    index_arrivo = ap;
+
+    for (int i = index_arrivo; i >= index_partenza; i--)
+    {
+        //.DEBUG
+        // printf("\n current_station: %d\n, i: %d\n", current_station.index, i);
+
+        /*mi permette di arrivare a stazione finale ed e'la piu piccola possibile*/
+        if (highway.stazioni[i].distanza_da_inizio_autostrada - highway.stazioni[i].parco.curr_max.autonomia <= highway.stazioni[index_partenza].distanza_da_inizio_autostrada)
+        {
+            //.DEBUG
+            // printf("\n urr_max.autonomia: %d\n, stazioni[i].distanza_da_inizio_autostrada: %d\n, stazioni[index_arrivo].distanza_da_inizio_autostrada: %d", highway.stazioni[i].parco.curr_max.autonomia, highway.stazioni[i].distanza_da_inizio_autostrada, highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
+            current_station = highway.stazioni[i];
+        }
+    }
+    //.DEBUG
+    // printf("\n end currwnt: %d\n", current_station.index);
+    return current_station.index;
+}

@@ -203,7 +203,14 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
 
     init_viaggio(&v,abs(index_arrivo - index_partenza + 2),highway.stazioni[index_partenza].parco.curr_max);
 
-    calculate_plan(&v, index_partenza, index_arrivo);
+    
+    
+    if (index_partenza < index_arrivo)
+    {
+        calculate_plan(&v, index_partenza, index_arrivo);
+    }else{
+        calculate_plan_reverse(&v, index_partenza, index_arrivo);
+    }
 
     if (v.num_tappe == -1)
     {

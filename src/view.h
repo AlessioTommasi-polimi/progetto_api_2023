@@ -66,6 +66,16 @@ void SuccessPianifica(viaggio *v)
     
 }
 
+void SuccessPianificaReverse(viaggio *v)
+{
+    // stampa le tappe in ordine di percorrenza rappresentate con la distanza di ogni stazione
+    printf("\n");
+    for (size_t i = 0; i < v->num_tappe; i++)
+    {
+        printf("%d ", v->tappa[i].distanza_da_inizio_autostrada);
+    }
+}
+
 void printHighway(){
     printf("\nHighway:{\n");
     printf("  \"Size\": %d,\n", highway.actual_size);
