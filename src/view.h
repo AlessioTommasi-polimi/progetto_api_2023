@@ -55,8 +55,15 @@ void ErrorPianifica(){
     printf("nessun percorso");
 }
 
-void SuccessPianifica(){
-    //stampa le tappe in ordine di percorrenza 
+void SuccessPianifica(viaggio *v)
+{
+    //stampa le tappe in ordine di percorrenza rappresentate con la distanza di ogni stazione
+    printf("\n");
+    for (size_t i = 0; i < v->num_tappe; i++)
+    {
+        printf("%d ", v->tappa[i].distanza_da_inizio_autostrada);
+    }
+    
 }
 
 void printHighway(){
@@ -68,7 +75,7 @@ void printHighway(){
     for (int i = 0; i < highway.actual_size; i++)
     {
         printf("        {\n");
-        printf("          \"Stazione\": %d,\n", i + 1);
+        printf("          \"Stazione\": %d,\n", i);
         printf("          \"Distanza\": %d,\n", highway.stazioni[i].distanza_da_inizio_autostrada);
         printf("          \"Index\": %d,\n", highway.stazioni[i].index);
         printparcoVeicoli(&highway.stazioni[i].parco);

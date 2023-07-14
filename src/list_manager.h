@@ -1,6 +1,6 @@
 #define INITIAL_STATION 50
 #define INITIAL_AUTO 200 //COMUNQUE MAX SONO 512
-
+//git pls
 void free_autostrada()
 {
     //libero i parchi
@@ -50,7 +50,7 @@ void init_parco(parco_veicoli *p,int initial_auto)
 }
 
 void init_viaggio(viaggio *v, int max_dim,veicolo macchina){
-    //v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
+    v->tappa = (struct stazione *)malloc(max_dim * sizeof(struct stazione));
     v->num_tappe = -1; // inizializzo a -1 caso in cui non trovo nessun percorso
     v->current_machine = macchina;//perfetto cosi assegno una copia e non rischio di modificare!
     v->current_machine.index = -1;//non serve a nulla sapere index del parco di questa macchina cosi li inizializzo a -1 per non fare errori concettuali!
@@ -171,6 +171,7 @@ int add_station(stazione s, int initial_auto)
     for (int i = highway.actual_size; i > index; i--)
     {
         highway.stazioni[i] = highway.stazioni[i - 1];
+        highway.stazioni[i].index =i;
     }
 
     s.index = index;
@@ -214,47 +215,24 @@ int demolisci_stazione(int distanza)
     return 0;
 }
 
-void calulate_plan_old(viaggio *v, int index_partenza, int index_arrivo){
-    if (index_partenza < index_arrivo)
-    {
-        if (highway.stazioni[index_arrivo].distanza_da_inizio_autostrada - highway.stazioni[index_partenza].distanza_da_inizio_autostrada < v->current_machine.autonomia)
-        {
-            return;
-        }else{
-            //devo certamente fare un cambio auto! prima che finica l autonomia!
-
-        }
-        
-      
-
-    }
-    
-    highway.stazioni[index_partenza].parco.curr_max;
-    //TODO
-    if (v->num_tappe == -1)
-    {
-        return;
-    }
-    
-
-}
 
 // Funzione per calcolare il piano di viaggio
 void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
 {
     int curr_index = index_partenza; // Inizialmente si parte dalla stazione di partenza
     int num_tappe = 0;
-    int i;
+    int max_ragg_index = -1;
 
     // Calcolo del numero minimo di tappe
-    while (curr_index < index_arrivo)
+    while ((curr_index < index_arrivo) && (max_ragg_index < index_arrivo))
     {
-        int next_index = get_index_max_raggiungibile_station_cres(curr_index, v->current_machine.autonomia);
-
+        max_ragg_index = get_index_max_raggiungible_station_cres(curr_index, v->current_machine.autonomia);
+        
         // Controllo se conviene fermarsi in una stazione precedente per cambiare veicolo
         int best_index = -1;
         int best_autonomia = v->current_machine.autonomia;
-        for (int j = curr_index - 1; j >= index_partenza; j--)
+
+        for (int j = curr_index; j > index_partenza; j--)
         {
             if (highway.stazioni[j].parco.curr_max.autonomia >= best_autonomia)
             {
@@ -263,29 +241,35 @@ void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
             }
         }
 
-        if (best_index != -1 && (next_index == curr_index || best_autonomia > (highway.stazioni[next_index].distanza_da_inizio_autostrada - highway.stazioni[curr_index].distanza_da_inizio_autostrada)))
+        if (best_index != -1 && (max_ragg_index == curr_index   || 
+            /*autonomia che ho col veicolo in posizione best_index basta ad arrivare a destinazione*/
+            best_autonomia > (highway.stazioni[max_ragg_index].distanza_da_inizio_autostrada - highway.stazioni[curr_index].distanza_da_inizio_autostrada)))
         {
             // Fermarsi in una stazione precedente per cambiare veicolo
             curr_index = best_index;
-            v->current_machine = highway.stazioni[curr_index].parco.curr_max;
-            v->tappa[num_tappe] = highway.stazioni[curr_index];
+            v->current_machine = highway.stazioni[best_index].parco.curr_max;
+            v->tappa[num_tappe] = highway.stazioni[best_index];
+            num_tappe++;
+            printf("Tappa %d: Dist stazione:%d  best index: %d \n", num_tappe, highway.stazioni[curr_index].distanza_da_inizio_autostrada, best_index);
         }
         else
         {
             // Continuare al prossimo index raggiungibile
-            if (next_index == curr_index) // Non è possibile raggiungere la stazione successiva!
+            if (max_ragg_index == curr_index) // Non è possibile raggiungere la stazione successiva!
             {
                 //.DEBUG
-                //printf("Non è possibile raggiungere la stazione di arrivo.\n");
+                printf("Non è possibile raggiungere la stazione di arrivo.\n");
                 return;
             }
-            curr_index = next_index;
-            v->tappa[num_tappe] = highway.stazioni[curr_index];
+            curr_index = max_ragg_index;
+            //.DEBUG
         }
-
-        num_tappe++;
+        //.DEBUG
+        printf("\n max_ragg_index: %d\n curr_index: %d \n curr_autonomia: %d\n", max_ragg_index, curr_index, v->current_machine.autonomia);
     }
-
+    v->num_tappe = num_tappe;
+    //.DEBUG
+    printf("Numero di tappe: %d\n", num_tappe);
 }
 
 //GETTERS
@@ -350,7 +334,7 @@ int get_index_max_raggiungible_station_cres(int index_partenza,int curr_autonomi
             return i-1;
         }
     }
-    return highway.actual_size;
+    return highway.actual_size-1;
 }
 
 // da richiamare <=> index_partenza > index_arrivo

@@ -36,10 +36,12 @@ void setVar() {
         //split string
         command = strtok(buffer_in, " ");
         controller(command);
+        //.DEBUG
+        //printHighway();
     }
 
     //.DEBUG
-    printHighway();
+    //printHighway();
 }
 
 void controller(char *command){
@@ -63,6 +65,8 @@ void controller(char *command){
     else if (strcmp(command, "pianifica-percorso") == 0)
     {
         plan();
+        printf("\nPOST: ");
+        printHighway();
     }
     
 }
@@ -186,21 +190,28 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
     index_partenza = get_index_station(dist_partenza);
     index_arrivo = get_index_station(dist_arrivo);
 
+    //.DEBUG
+    printf("\nplan: index_partenza: %d, index_arrivo: %d\n", index_partenza, index_arrivo);
+ 
     if (index_partenza == -1 || index_arrivo == -1)
     {
+        //.DEBUG
+        printf("\nindex_partenza: %d, index_arrivo: %d", index_partenza, index_arrivo);
         ErrorPianifica();
         return;
     }
 
-    init_viaggio(&v,abs(index_arrivo - index_partenza),highway.stazioni[index_partenza].parco.curr_max);
+    init_viaggio(&v,abs(index_arrivo - index_partenza + 2),highway.stazioni[index_partenza].parco.curr_max);
 
-    calulate_plan(&v, index_partenza, index_arrivo);
+    calculate_plan(&v, index_partenza, index_arrivo);
 
     if (v.num_tappe == -1)
     {
         ErrorPianifica();
         return;
     }
-    ErrorPianifica();
+    SuccessPianifica(&v);
+
+    free_viaggio(&v);
 
 }
