@@ -65,8 +65,9 @@ void controller(char *command){
     else if (strcmp(command, "pianifica-percorso") == 0)
     {
         plan();
-        printf("\nPOST: ");
-        printHighway();
+        //.DEBUG
+        //printf("\nPOST: ");
+        //printHighway();
     }
     
 }
