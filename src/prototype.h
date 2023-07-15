@@ -37,9 +37,9 @@ void SuccessDemolisci();
 
 void ErrorPianifica();
 
-void SuccessPianifica(viaggio *v);
+void SuccessPianifica(viaggio *v, int index_partenza, int index_arrivo);
 
-void SuccessPianificaReverse(viaggio *v);
+void SuccessPianificaReverse(viaggio *v, int index_partenza, int index_arrivo);
 
 
 /*end stampe*/
@@ -69,7 +69,6 @@ void free_viaggio(viaggio *v);
 
 void calculate_plan(viaggio *v, int index_partenza, int index_arrivo);
 
-/*TODO*/
 void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo);
 
 /*getter of list*/
@@ -85,5 +84,5 @@ int get_index_max_raggiungible_station_desh(int index_partenza, int curr_autonom
 
 int get_best_station(int index_partenza, int index_arrivo);
 
-/*TODO*/
+/*UNUSED*/
 int get_best_station_reverse(int index_partenza, int index_arrivo);
