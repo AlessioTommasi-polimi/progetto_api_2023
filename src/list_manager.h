@@ -241,6 +241,62 @@ void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
     //printf("Numero di tappe: %d\n", num_tappe);
 }
 
+void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
+{
+    int ap = index_partenza;
+    int next_max = -1;
+
+    index_partenza = index_arrivo;
+    index_arrivo = ap;
+
+    int curr_index = index_partenza;
+    int num_tappe = 0;
+
+    stazione best_curr_station = highway.stazioni[index_arrivo];
+
+    int max_index_curr = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
+
+    /*devo escludere stazione iniziale dall elenco delle tappe: */
+    if (max_index_curr <= index_partenza)
+    {
+        v->num_tappe = 0;
+        return;
+    }
+    
+    while (curr_index > index_partenza)
+    {
+        next_max = max_index_curr;
+        for (size_t i = curr_index; i >= max_index_curr; i--)
+        {
+            ap = get_index_max_raggiungible_station_desh(i, highway.stazioni[i].parco.curr_max.autonomia);
+            /*con la stazione i riesco ad arrivare piu lontano*/
+            if (ap >= get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia) || (ap <= index_partenza))
+            {
+                best_curr_station = highway.stazioni[i];
+                next_max = ap;
+            }
+            
+        }
+
+        if ((best_curr_station.index == curr_index /*non ce nessuna stazione che riesce a portarmi piu lontano di quella corrente*/) && (/*non riesco a raggiungere arrivo*/get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia) > index_partenza ))
+        {
+            // Non è stato possibile trovare un percorso
+            v->num_tappe = -1;
+            return;
+        }
+
+        v->tappa[num_tappe] = best_curr_station;
+        num_tappe++;
+
+        max_index_curr = next_max;/*equivalente della riga sotto ma ottimizzato*/
+        //max_index_curr = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
+
+        curr_index = best_curr_station.index;
+    }
+    v->num_tappe = num_tappe;
+    //.DEBUG
+    // printf("Numero di tappe: %d\n", num_tappe);
+}
 //GETTERS
 parco_veicoli *get_parco(int distanza)
 {
