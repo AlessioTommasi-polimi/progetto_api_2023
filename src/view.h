@@ -52,32 +52,32 @@ void SuccessDemolisci()
 }
 
 void ErrorPianifica(){
-    printf("nessun percorso");
+    printf("nessun percorso\n");
 }
 
 void SuccessPianifica(viaggio *v, int index_partenza, int index_arrivo)
 {
     //stampa le tappe in ordine di percorrenza rappresentate con la distanza di ogni stazione
-    printf("\n");
-    printf("%d ", index_partenza);
+    //printf("\n");
+    printf("%d ", highway.stazioni[index_partenza].distanza_da_inizio_autostrada);
     for (size_t i = 0; i < v->num_tappe; i++)
     {
         printf("%d ", v->tappa[v->num_tappe -i -1].distanza_da_inizio_autostrada);
     }
-    printf("%d ", index_arrivo);
+    printf("%d ", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
     printf("\n");
 }
 
 void SuccessPianificaReverse(viaggio *v, int index_partenza, int index_arrivo)
 {
     // stampa le tappe in ordine di percorrenza rappresentate con la distanza di ogni stazione
-    printf("\n");
-    printf("%d ", index_partenza);
+    //printf("\n");
+    printf("%d ", highway.stazioni[index_partenza].distanza_da_inizio_autostrada);
     for (size_t i = 0; i < v->num_tappe; i++)
     {
         printf("%d ", v->tappa[i].distanza_da_inizio_autostrada);
     }
-    printf("%d ", index_arrivo);
+    printf("%d ", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
     printf("\n");
 }
 

@@ -31,7 +31,7 @@ void setVar() {
     while (fgets(buffer_in, sizeof(buffer_in), stdin) != NULL)
     {
         // riga completa
-        printf("\n %s", buffer_in);
+        //printf("\n %s", buffer_in);
         i=0;
         //split string
         command = strtok(buffer_in, " ");
