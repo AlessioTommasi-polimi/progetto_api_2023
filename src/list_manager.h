@@ -202,15 +202,18 @@ int demolisci_stazione(int distanza)
     {
         return -1;
     }
-
+    //.DEBUG
+    //printparcoVeicoli(&highway.stazioni[index].parco);
     //libero memoria
-    free_parck(&highway.stazioni[index].parco);
 
+    highway.actual_size--;
+    free_parck(&highway.stazioni[index].parco);
     for (int i = index; i < highway.actual_size; i++)
     {
         highway.stazioni[i] = highway.stazioni[i+1];
     }
-    highway.actual_size--;
+    printf("post for\n");
+
 
     return 0;
 }
