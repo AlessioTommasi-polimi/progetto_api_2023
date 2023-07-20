@@ -211,6 +211,7 @@ int demolisci_stazione(int distanza)
     for (int i = index; i < highway.actual_size; i++)
     {
         highway.stazioni[i] = highway.stazioni[i+1];
+        highway.stazioni[i].index = i;
     }
     //printf("post for\n");
 
