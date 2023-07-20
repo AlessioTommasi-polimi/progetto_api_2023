@@ -64,7 +64,7 @@ void SuccessPianifica(viaggio *v, int index_partenza, int index_arrivo)
     {
         printf("%d ", v->tappa[v->num_tappe -i -1].distanza_da_inizio_autostrada);
     }
-    printf("%d ", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
+    printf("%d", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
     printf("\n");
 }
 
@@ -77,7 +77,7 @@ void SuccessPianificaReverse(viaggio *v, int index_partenza, int index_arrivo)
     {
         printf("%d ", v->tappa[i].distanza_da_inizio_autostrada);
     }
-    printf("%d ", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
+    printf("%d", highway.stazioni[index_arrivo].distanza_da_inizio_autostrada);
     printf("\n");
 }
 

@@ -1,5 +1,5 @@
 #define INITIAL_STATION 50
-#define INITIAL_AUTO 200 //COMUNQUE MAX SONO 512
+#define INITIAL_AUTO 20 //COMUNQUE MAX SONO 512
 
 void free_autostrada()
 {
@@ -193,7 +193,7 @@ int demolisci_stazione(int distanza)
         {
             index = i;
             //.DEBUG
-            printf("demolisco stazione %d   con indice: %d\n", distanza, index);
+            //printf("demolisco stazione %d   con indice: %d\n", distanza, index);
             break;
         }
     }
@@ -212,7 +212,7 @@ int demolisci_stazione(int distanza)
     {
         highway.stazioni[i] = highway.stazioni[i+1];
     }
-    printf("post for\n");
+    //printf("post for\n");
 
 
     return 0;

@@ -46,7 +46,7 @@ def launch_bash_command(n, timeout, processes):
             return -1, None
 
         # Check the output using the 'diff' command
-        diff_command = "diff ./test/archivio_test_aperti/open_{}.output.txt ./test/archivio_test_aperti/out.txt".format(n)
+        diff_command = "diff ./test/archivio_test_aperti/open_{}.output.txt out.txt".format(n)
         diff_output = subprocess.run(diff_command, shell=True, capture_output=True)
 
         if diff_output.returncode == 0:
