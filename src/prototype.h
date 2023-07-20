@@ -71,6 +71,8 @@ void calculate_plan(viaggio *v, int index_partenza, int index_arrivo);
 
 void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo);
 
+void fix_index();
+
 /*getter of list*/
 parco_veicoli *get_parco(int distanza);
 

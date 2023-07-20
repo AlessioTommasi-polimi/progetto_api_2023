@@ -191,6 +191,9 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
     index_partenza = get_index_station(dist_partenza);
     index_arrivo = get_index_station(dist_arrivo);
 
+    //in teoria non deve essere fatto pero cosi funziona
+    fix_index();
+
     //.DEBUG
     //printf("\nplan: index_partenza: %d, index_arrivo: %d\n", index_partenza, index_arrivo);
     
@@ -218,6 +221,8 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
         calculate_plan(&v, index_partenza, index_arrivo);
         if (v.num_tappe == -1)
         {
+            //.DEBUG
+            //printHighway();
             ErrorPianifica();
             return;
         }
