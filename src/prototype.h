@@ -88,3 +88,5 @@ int get_best_station(int index_partenza, int index_arrivo);
 
 /*UNUSED*/
 int get_best_station_reverse(int index_partenza, int index_arrivo);
+
+int get_next_best_station(int index_partenza, int index_arrivo);

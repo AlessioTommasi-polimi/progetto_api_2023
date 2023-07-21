@@ -136,12 +136,18 @@ void addAuto(){
 
     v.autonomia = autonomia;
     p = get_parco(distance);
+   
     if(p== NULL){
         ErrorAdd();
+        //.DEBUG
+        //printf("parco: %d non trovato\n", distance);
         return;
     }
-    if(add_auto(p, v) == 0)
+    if(add_auto(p, v) == 0){
+        //.DEBUG
+        //printf("parco: %d aggiunta auto: %d curr_max.autonomia: %d\n", distance, v.autonomia, p->curr_max.autonomia);
         SuccessAdd();
+    }
     else
         ErrorAdd();
 
@@ -191,7 +197,7 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
     index_partenza = get_index_station(dist_partenza);
     index_arrivo = get_index_station(dist_arrivo);
 
-    //in teoria non deve essere fatto pero cosi funziona
+    //gia fatto! non si puo implementare questa ottimizzazione qui!
     //fix_index();
 
     //.DEBUG
@@ -240,5 +246,7 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
     
 
     free_viaggio(&v);
+    //.DEBUG
+    printHighway();
 
 }
