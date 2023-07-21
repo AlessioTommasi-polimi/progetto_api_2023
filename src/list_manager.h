@@ -307,7 +307,7 @@ void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
             ap = get_index_max_raggiungible_station_desh(i, highway.stazioni[i].parco.curr_max.autonomia);
             best_max_index_ragg = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
             //.DEBUG
-            printf("\n indice massimo a cui puo arrivare stazione %d: %d; ovvero stazione %d \n", highway.stazioni[i].distanza_da_inizio_autostrada, ap, highway.stazioni[ap].distanza_da_inizio_autostrada);
+            //printf("\n indice massimo a cui puo arrivare stazione %d: %d; ovvero stazione %d \n", highway.stazioni[i].distanza_da_inizio_autostrada, ap, highway.stazioni[ap].distanza_da_inizio_autostrada);
 
 
             if (ap <= best_max_index_ragg /*con la stazione i riesco ad arrivare piu lontano*/|| (ap <= index_partenza) /*la stazione mi permette di arrivare comunque all arrivo*/|| ap <= get_next_best_station(best_curr_station.index,best_max_index_ragg)/*distanza minore ma rientro comunque dentro nella stazione che scegliero come prossima migliore!*/)
@@ -315,7 +315,7 @@ void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
                 best_curr_station = highway.stazioni[i];
                 next_max = ap;
                 //.DEBUG
-                printf("\n best_curr_station found: %d index: %d\n", best_curr_station.distanza_da_inizio_autostrada, best_curr_station.index);
+                //printf("\n best_curr_station found: %d index: %d\n", best_curr_station.distanza_da_inizio_autostrada, best_curr_station.index);
             }
             
         }
@@ -338,9 +338,9 @@ void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
         curr_index = best_curr_station.index;
         //curr_index--;
         //.DEBUG
-        printf("\nbest_curr_station: %d\n", highway.stazioni[curr_index].distanza_da_inizio_autostrada);
-        printf("best_curr_station_autonomia: %d\n", highway.stazioni[curr_index].parco.curr_max.autonomia);
-        printf("curr_index: %d  index_partenza: %d\n\n", curr_index, index_partenza);
+        //printf("\nbest_curr_station: %d\n", highway.stazioni[curr_index].distanza_da_inizio_autostrada);
+        //printf("best_curr_station_autonomia: %d\n", highway.stazioni[curr_index].parco.curr_max.autonomia);
+        //printf("curr_index: %d  index_partenza: %d\n\n", curr_index, index_partenza);
     }
     v->num_tappe = num_tappe;
     //.DEBUG

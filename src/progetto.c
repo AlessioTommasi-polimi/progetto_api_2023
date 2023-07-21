@@ -247,6 +247,6 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
 
     free_viaggio(&v);
     //.DEBUG
-    printHighway();
+    //printHighway();
 
 }
