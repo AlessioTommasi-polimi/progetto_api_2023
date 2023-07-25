@@ -99,3 +99,18 @@ void printHighway(){
     printf("  ]\n");
     printf("}\n");
 }
+
+void printStazione(int distance){
+    printf("\n\n stampo stazione %d\n", distance);
+    int index = get_index_station(distance);
+    if(index == -1){
+        printf("stazione non trovata\n");
+        return;
+    }
+    printf("\nStazione:{\n");
+    printf("  \"Stazione\": %d,\n", index);
+    printf("  \"Distanza\": %d,\n", highway.stazioni[index].distanza_da_inizio_autostrada);
+    printf("  \"Index\": %d,\n", highway.stazioni[index].index);
+    printparcoVeicoli(&highway.stazioni[index].parco);
+    printf("}\n");
+}

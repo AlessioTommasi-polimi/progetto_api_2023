@@ -1,5 +1,5 @@
-#define INITIAL_STATION 50
-#define INITIAL_AUTO 20 //COMUNQUE MAX SONO 512
+#define INITIAL_STATION 100
+#define INITIAL_AUTO 320 //COMUNQUE MAX SONO 512
 
 void free_autostrada()
 {

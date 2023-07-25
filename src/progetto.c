@@ -109,6 +109,14 @@ void addStation(){
     }
     SuccessAdd();
 
+    //.DEBUG
+    /*
+    if (distance == 3038)
+    {
+        printf("\nstazione appena creata! ");
+        printStazione(3038);
+    }*/
+
 }
 
 void demolisciStazione(){
@@ -248,5 +256,7 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
     free_viaggio(&v);
     //.DEBUG
     //printHighway();
+    //printf("\npost operazioni: ");
+    //printStazione(3038);
 
 }

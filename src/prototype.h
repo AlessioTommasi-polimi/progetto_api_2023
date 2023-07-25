@@ -23,6 +23,8 @@ void printparcoVeicoli(parco_veicoli *parco);
 
 void printVeicolo(veicolo *v);
 
+void printStazione(int distance);
+
 void ErrorAdd();
 
 void SuccessAdd();
