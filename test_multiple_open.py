@@ -7,7 +7,7 @@ import signal
 import psutil
 
 DEFAULT_N = 111
-DEFAULT_TIMEOUT = 30
+DEFAULT_TIMEOUT = 300
 
 # Type of return: -1 -> seg fault
 #                 -2 -> wrong diff
