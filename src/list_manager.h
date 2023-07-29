@@ -265,11 +265,12 @@ void calculate_plan(viaggio *v, int index_partenza, int index_arrivo)
 
 void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
 {
-    int ap = index_partenza,best_max_index_ragg;
-    int next_max = -1;
+    int i_max_ragg_index = index_partenza;
+    int next_max = -1,flag_is_changed_best_station = 1;
+    int old_i_max_ragg_index=-1;
 
     index_partenza = index_arrivo;
-    index_arrivo = ap;
+    index_arrivo = i_max_ragg_index;
 
     int curr_index = index_arrivo;
     int num_tappe = 0;
@@ -299,23 +300,51 @@ void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
         return;
     }
     
-    while ((curr_index > index_partenza)&&(max_index_curr > index_partenza))
+    while ((curr_index > index_partenza)&&(max_index_curr > index_partenza)/*la seconda e'condizione piu stringente della prima quindi in teoria potrei lasciare solo questa ma devo ancora verificare edge case*/ )
     {
+        flag_is_changed_best_station = 1;
         next_max = max_index_curr;
         for (int i = curr_index; i >= max_index_curr; i--)
         {
-            ap = get_index_max_raggiungible_station_desh(i, highway.stazioni[i].parco.curr_max.autonomia);
-            best_max_index_ragg = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
-            //.DEBUG
-            //printf("\n indice massimo a cui puo arrivare stazione %d: %d; ovvero stazione %d \n", highway.stazioni[i].distanza_da_inizio_autostrada, ap, highway.stazioni[ap].distanza_da_inizio_autostrada);
+            i_max_ragg_index = get_index_max_raggiungible_station_desh(i, highway.stazioni[i].parco.curr_max.autonomia);
 
+            /*ottimizzazione*/
+            if(flag_is_changed_best_station == 1){
+                //best_station_max_index_ragg = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
+                //.DEBUG
+                //printf("\n indice massimo a cui puo arrivare stazione %d: %d; ovvero stazione %d \n", highway.stazioni[i].distanza_da_inizio_autostrada, i_max_ragg_index, highway.stazioni[i_max_ragg_index].distanza_da_inizio_autostrada);
+                //best_station_next_index =get_next_best_station(best_curr_station.index, best_station_max_index_ragg);/*distanza minore ma rientro comunque dentro nella stazione che scegliero come prossima migliore!*/
+                flag_is_changed_best_station = 0;
+            }
 
-            if (ap <= best_max_index_ragg /*con la stazione i riesco ad arrivare piu lontano*/|| (ap <= index_partenza) /*la stazione mi permette di arrivare comunque all arrivo*/|| ap <= get_next_best_station(best_curr_station.index,best_max_index_ragg)/*distanza minore ma rientro comunque dentro nella stazione che scegliero come prossima migliore!*/)
+            if (
+                 (i_max_ragg_index <= old_i_max_ragg_index || old_i_max_ragg_index == -1)/*distanza minore ma rientro comunque dentro nella stazione che scegliero come prossima migliore!*/
+                     ||
+                 (i_max_ragg_index <= index_partenza) /*la stazione mi permette di arrivare comunque all arrivo*/
+                )
             {
+                //.DEBUG
+                /*
+                printf("\ncurr index station: %d "
+                       "max_station raggiungible by curr: %d "
+                       "old best_station: %d "
+                       "next best_station : %d  "
+                       "i_max_ragg (index that station %d could reach): %d \n",
+                       highway.stazioni[curr_index].distanza_da_inizio_autostrada,
+                       highway.stazioni[max_index_curr].distanza_da_inizio_autostrada,
+                       best_curr_station.distanza_da_inizio_autostrada,
+                       highway.stazioni[i].distanza_da_inizio_autostrada,
+                       highway.stazioni[i].distanza_da_inizio_autostrada,
+                       highway.stazioni[i_max_ragg_index].distanza_da_inizio_autostrada
+                       );
+                   */
                 best_curr_station = highway.stazioni[i];
-                next_max = ap;
+                next_max = i_max_ragg_index;
+                flag_is_changed_best_station = 1;
+                old_i_max_ragg_index = i_max_ragg_index;
                 //.DEBUG
                 //printf("\n best_curr_station found: %d index: %d\n", best_curr_station.distanza_da_inizio_autostrada, best_curr_station.index);
+
             }
             
         }
@@ -336,7 +365,6 @@ void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo)
         //max_index_curr = get_index_max_raggiungible_station_desh(best_curr_station.index, best_curr_station.parco.curr_max.autonomia);
 
         curr_index = best_curr_station.index;
-        //curr_index--;
         //.DEBUG
         //printf("\nbest_curr_station: %d\n", highway.stazioni[curr_index].distanza_da_inizio_autostrada);
         //printf("best_curr_station_autonomia: %d\n", highway.stazioni[curr_index].parco.curr_max.autonomia);

@@ -255,7 +255,12 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
 
     free_viaggio(&v);
     //.DEBUG
-    //printHighway();
+    /*
+    if (dist_partenza == 17403 && dist_arrivo == 1993){
+        printHighway();
+        return;
+    }*/
+
     //printf("\npost operazioni: ");
     //printStazione(3038);
 

@@ -5,7 +5,7 @@ void printparcoVeicoli(parco_veicoli *parco)
     printf("            \"Capacity\": %d,\n", parco->actual_capacity);
     printf("             Veicoli:[\n");
     printf("              curr_max: {\"Autonomia\": %d \"index\": %d},\n", parco->curr_max.autonomia, parco->curr_max.index);
-
+    /*
     for (int i = 0; i < parco->actual_size; i++)
     {
         printf("                 {\n");
@@ -13,6 +13,7 @@ void printparcoVeicoli(parco_veicoli *parco)
         printVeicolo(&parco->veicoli[i]);
         printf("                 }%s\n", (i < parco->actual_size - 1) ? "," : "");
     }
+     */
     printf("              ]\n");
     printf("             }\n");
 }
