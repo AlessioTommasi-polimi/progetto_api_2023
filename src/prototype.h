@@ -71,6 +71,7 @@ void free_viaggio(viaggio *v);
 
 void calculate_plan(viaggio *v, int index_partenza, int index_arrivo);
 
+//questo e'errato! devo eseguirlo con dikjstra!
 void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo);
 
 void fix_index();
