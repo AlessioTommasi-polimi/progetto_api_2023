@@ -115,3 +115,12 @@ void printStazione(int distance){
     printparcoVeicoli(&highway.stazioni[index].parco);
     printf("}\n");
 }
+
+void print_vector(int *v, int size, char *name){
+    printf("\n %s: \n", name);
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", v[i]);
+    }
+    printf("\n");
+}

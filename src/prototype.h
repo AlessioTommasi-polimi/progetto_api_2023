@@ -25,6 +25,8 @@ void printVeicolo(veicolo *v);
 
 void printStazione(int distance);
 
+void print_vector(int *v, int size, char *name);
+
 void ErrorAdd();
 
 void SuccessAdd();
@@ -73,6 +75,13 @@ void calculate_plan(viaggio *v, int index_partenza, int index_arrivo);
 
 //questo e'errato! devo eseguirlo con dikjstra!
 void calculate_plan_reverse(viaggio *v, int index_partenza, int index_arrivo);
+
+void calculate_plan_reverse_dijkstra(viaggio *v, int index_partenza, int index_arrivo);
+
+void calculate_plan_reverse_dijkstra_mio(viaggio *v, int index_partenza, int index_arrivo);
+
+
+int find_min_distance_station(stazione *stazioni, int index_partenza, int index_arrivo, int curr_autonomia);
 
 void fix_index();
 
