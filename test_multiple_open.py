@@ -6,7 +6,7 @@ import argparse
 import signal
 import psutil
 
-DEFAULT_N = 99
+DEFAULT_N = 111
 DEFAULT_TIMEOUT = 300
 
 # Type of return: -1 -> seg fault

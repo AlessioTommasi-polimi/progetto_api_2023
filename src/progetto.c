@@ -243,7 +243,8 @@ void plan(){//nota ogni autostrada e' percorribile in 2 sensi di marcia
         SuccessPianifica(&v, index_partenza, index_arrivo);
     }else{
         //calculate_plan_reverse(&v, index_partenza, index_arrivo);
-        calculate_plan_reverse_dijkstra_mio(&v, index_partenza, index_arrivo);
+        //calculate_plan_reverse_dijkstra_from_end(&v, index_partenza, index_arrivo);
+        calculate_plan_reverse_dijkstra_from_end(&v, index_partenza, index_arrivo);
         //.DEBUG
         //printHighway();
         if (v.num_tappe == -1)
